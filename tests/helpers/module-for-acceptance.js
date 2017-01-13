@@ -2,6 +2,7 @@ import { module } from 'qunit';
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
+// jscs:disable requireSpread
 
 const { RSVP: { Promise } } = Ember;
 

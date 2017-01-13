@@ -1,0 +1,36 @@
+{{#leaflet-map
+  lat=52
+  lng=10
+  zoom=2
+}}
+  {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+  {{#leaflet-contextmenu
+    disabled=disabledContextmenu
+  }}
+    {{leaflet-contextmenu-item
+      text='show position'
+      action=(action 'showPosition')
+      disabled=disabledShowPosition
+    }}
+    {{#if showAnotherItem}}
+      {{leaflet-contextmenu-item
+        text='another item'
+      }}
+    {{/if}}
+  {{/leaflet-contextmenu}}
+{{/leaflet-map}}
+
+<button onclick={{action 'toggle' 'disabledContextmenu'}}>
+  {{#if disabledContextmenu}}enable{{else}}disable{{/if}}
+  context menu
+</button>
+
+<button onclick={{action 'toggle' 'disabledShowPosition'}}>
+  {{#if disabledShowPosition}}enable{{else}}disable{{/if}}
+  context menu item 'show position'
+</button>
+
+<button onclick={{action 'toggle' 'showAnotherItem'}}>
+  {{#if showAnotherItem}}hide{{else}}show{{/if}}
+  another context menu item
+</button>

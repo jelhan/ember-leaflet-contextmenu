@@ -1,13 +1,50 @@
 # ember-leaflet-contextmenu
 
-This README outlines the details of collaborating on this Ember addon.
+Provides a contextmenu for [Ember-Leaflet](http://ember-leaflet.com),
+an Ember Addon for [Leaflet](http://leafletjs.com) interactive maps.
+
+This addon is based on a JS library [Leaflet.contextmenu](https://github.com/aratcliffe/Leaflet.contextmenu)
+and basically wraps it into ember component for usage in HTMLbars templates.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-leaflet-contextmenu`
-* `npm install`
-* `bower install`
+* `ember install ember-leaflet-contextmenu`
+
+## Usage example
+
+```handlebars
+{{#leaflet-map lat=lat lng=lng zoom=zoom}}
+  {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+  {{#leaflet-contextmenu}}
+    {{leaflet-contextmenu-item
+      text='show position'
+      action=(action 'showPosition')
+    }}
+  {{/leaflet-contextmenu}}
+{{/leaflet-map}}
+```
+
+Only a limited set of options provided by [Leaflet.contextmenu](https://github.com/aratcliffe/Leaflet.contextmenu) are supported yet. Binding a contextmenu to layers isn't supported at all. I would appreciate pull requests.
+
+## {{leaflet-contextmenu}}
+Wrapper for `{{leaflet-contextmenu-item}}`.
+
+### Options
+| Property | Type    | Default | Description           |
+| -------- | ------- | ------- | --------------------- |
+| disabled | Boolean | false   | If set to true contextmenu is disabled |
+
+## {{leaflet-contextmenu-item}}
+### Options
+| Property      | Type    | Description |
+| ------------- | ------- | ----------- |
+| action        | Action  | Action to be called when user clicks on menu item |
+| disabled      | Boolean | If set to true menu item is disabled |
+| icon 	        | String  | |
+| iconCls       | String  | |
+| retinaIcon    | String  | |
+| retinaIconCls | String  | |
+| text          | String  | Label to use for the menu item (required) |
 
 ## Running
 
