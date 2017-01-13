@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Contextmenu plugin for ember-leaflet",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-leaflet",
+    "ember",
+    "leaflet"
   ],
   "license": "MIT",
   "author": "",
