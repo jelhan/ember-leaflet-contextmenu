@@ -43,7 +43,7 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.13.3",
     "ember-suave": "4.0.1",
-    "leaflet": "^1.1.0",
+    "leaflet": "1.0.3",
     "leaflet-contextmenu": "^1.4.0",
     "loader.js": "^4.2.3"
   },
