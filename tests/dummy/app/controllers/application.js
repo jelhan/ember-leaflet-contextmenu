@@ -14,7 +14,7 @@ export default Controller.extend({
     }
   },
   contextmenuWidth: 250,
-  disabledShowPosition: false,
   disabledContextmenu: false,
+  disabledShowPosition: false,
   hideAnotherItem: true
 });

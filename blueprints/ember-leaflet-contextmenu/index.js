@@ -9,6 +9,6 @@ module.exports = {
  },
 
   afterInstall: function() {
-    return this.addBowerPackageToProject('Leaflet.contextmenu');
+    return this.addPackageToProject('leaflet-contextmenu');
   }
 };
