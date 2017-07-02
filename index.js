@@ -14,14 +14,13 @@ module.exports = {
     app.import('vendor/leaflet-contextmenu/leaflet.contextmenu.css');
  },
  treeForVendor(vendorTree) {
-    var leafletContextmenuTree = new Funnel(path.join(this.project.root, 'node_modules', 'leaflet-contextmenu', 'dist'), {
+    let lcPath = path.join(this.project.root, 'node_modules', 'leaflet-contextmenu', 'dist');
+    return new Funnel(lcPath, {
       destDir: 'leaflet-contextmenu',
       files: [
         'leaflet.contextmenu.js',
         'leaflet.contextmenu.css'
       ]
     });
-
-    return new MergeTrees([vendorTree, leafletContextmenuTree]);
   },
 };
