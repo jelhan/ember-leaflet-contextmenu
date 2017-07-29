@@ -1,6 +1,7 @@
 /* eslint-env node */
 'use strict';
 
+var map = require('broccoli-stew').map;
 var path = require('path');
 var Funnel = require('broccoli-funnel');
 var MergeTrees = require('broccoli-merge-trees');
@@ -13,14 +14,25 @@ module.exports = {
     app.import('vendor/leaflet-contextmenu/leaflet.contextmenu.js');
     app.import('vendor/leaflet-contextmenu/leaflet.contextmenu.css');
  },
- treeForVendor(vendorTree) {
+ treeForVendor(defaultTree) {
+    let trees = [];
     let lcPath = path.join(this.project.root, 'node_modules', 'leaflet-contextmenu', 'dist');
-    return new Funnel(lcPath, {
+    let browserVendorLib = new Funnel(lcPath, {
       destDir: 'leaflet-contextmenu',
       files: [
         'leaflet.contextmenu.js',
         'leaflet.contextmenu.css'
       ]
     });
+
+    browserVendorLib = map(browserVendorLib, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
+
+    if (defaultTree !== undefined) {
+      trees.push(defaultTree);
+    }
+
+    trees.push(browserVendorLib);
+
+    return new MergeTrees(trees);
   },
 };
