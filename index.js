@@ -19,7 +19,12 @@ module.exports = {
     let browserVendorLib = new Funnel(lcPath, {
       destDir: 'leaflet-contextmenu',
       files: [
-        'leaflet.contextmenu.js',
+        'leaflet.contextmenu.js'
+      ]
+    });
+    let vendorCss = new Funnel(lcPath, {
+      destDir: 'leaflet-contextmenu',
+      files: [
         'leaflet.contextmenu.css'
       ]
     });
@@ -31,6 +36,7 @@ module.exports = {
     }
 
     trees.push(browserVendorLib);
+    trees.push(vendorCss);
 
     return new MergeTrees(trees);
   },
