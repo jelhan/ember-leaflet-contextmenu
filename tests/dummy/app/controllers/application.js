@@ -1,7 +1,4 @@
-import Ember from 'ember';
-/* global alert */
-
-const { Controller } = Ember;
+import Controller from '@ember/controller';
 
 export default Controller.extend({
   actions: {

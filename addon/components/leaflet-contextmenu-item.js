@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import { assert } from '@ember/debug';
+import { assign } from '@ember/polyfills';
+import { observer } from '@ember/object';
 import BaseLayer from 'ember-leaflet/components/base-layer';
 import LeafletContextmenu from './leaflet-contextmenu';
-
-const { assert, assign, observer } = Ember;
 
 export default BaseLayer.extend({
   addToContainer() {

@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import { assert } from '@ember/debug';
+import { observer } from '@ember/object';
 import BaseLayer from 'ember-leaflet/components/base-layer';
 import LeafletMap from 'ember-leaflet/components/leaflet-map';
 import { ParentMixin } from 'ember-composability-tools';
-
-const { assert, observer } = Ember;
 
 export default BaseLayer.extend(ParentMixin, {
   addToContainer() {
