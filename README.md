@@ -1,5 +1,7 @@
 # ember-leaflet-contextmenu
 
+[![Build Status](https://travis-ci.org/jelhan/ember-leaflet-contextmenu.svg?branch=master)](https://travis-ci.org/jelhan/ember-leaflet-contextmenu)
+
 Provides a contextmenu for [Ember-Leaflet](http://ember-leaflet.com),
 an Ember Addon for [Leaflet](http://leafletjs.com) interactive maps.
 
