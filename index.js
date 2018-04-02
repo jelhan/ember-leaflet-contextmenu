@@ -1,19 +1,20 @@
+/* eslint-disable ember-suave/prefer-destructuring */
 'use strict';
 
-var map = require('broccoli-stew').map;
-var path = require('path');
-var Funnel = require('broccoli-funnel');
-var MergeTrees = require('broccoli-merge-trees');
+let map = require('broccoli-stew').map;
+let path = require('path');
+let Funnel = require('broccoli-funnel');
+let MergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
   name: 'ember-leaflet-contextmenu',
-  included: function(app) {
+  included(app) {
     this._super.included.apply(this, arguments);
 
     app.import('vendor/leaflet-contextmenu/leaflet.contextmenu.js');
     app.import('vendor/leaflet-contextmenu/leaflet.contextmenu.css');
- },
- treeForVendor(defaultTree) {
+  },
+  treeForVendor(defaultTree) {
     let trees = [];
     let lcPath = path.join(this.project.root, 'node_modules', 'leaflet-contextmenu', 'dist');
     let browserVendorLib = new Funnel(lcPath, {
@@ -39,5 +40,5 @@ module.exports = {
     trees.push(vendorCss);
 
     return new MergeTrees(trees);
-  },
+  }
 };
